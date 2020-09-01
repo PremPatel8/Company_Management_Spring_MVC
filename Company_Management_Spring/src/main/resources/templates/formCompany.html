@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert Company</title>
+</head>
+<body>
+<div class="header">
+		<div class="header_resize">
+			<div class="logo">
+				<h1>
+					<a href="index.html" th:href="@{/index}">Company Management
+						Application</a>
+				</h1>
+			</div>
+		</div>
+	</div>
+<table>
+  <tr>
+   <td>
+   	<div th:if="${successMessage}">
+    	<h3 th:text="${successMessage}"></h3><br>
+	</div>
+    <form action="#" th:action="@{/company_management/saveCompany}" th:object="${company}" method="POST">
+		    <table style="width: 1200px; ">
+			    <tr>
+			    <td> Company ID (*): </td>
+			    <td> <input type="text" th:field="*{idcompany}"> </td>
+			    <td><p th:if="${#fields.hasErrors('idcompany')}" th:errors="*{idcompany}">Company ID Error</p></td>
+			    </tr>
+			
+			    <tr>
+			    <td> Company Name (*): </td>
+			    <td> <input type="text" th:field="*{company_name}"> </td>
+			    <td><p th:if="${#fields.hasErrors('company_name')}" th:errors="*{company_name}">Company Name Error</p></td>
+			    </tr>
+			
+			    <tr>
+			    <td> Phone: </td>
+			    <td> <input type="text" th:field="*{phone}"> </td>
+			    <td><p th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">Phone Error</p></td>
+			    </tr>
+			
+			    <tr>
+			    <td> Email (*): </td>
+			    <td> <input type="text" th:field="*{email}"> </td>
+			    <td><p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</p></td>
+			    </tr>
+			
+			    <tr>
+			    <td colspan="2">(*) Mandatory field</td>
+			    </tr>
+		    </table>
+		    <button type="submit">Insert Company</button>
+    </form>
+</td>
+</tr>
+</table>
+</body>
+</html>
