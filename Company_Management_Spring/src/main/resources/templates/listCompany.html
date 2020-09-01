@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Companies List</title>
+</head>
+<body>
+	<div class="header">
+		<div class="header_resize">
+			<div class="logo">
+				<h1>
+					<a href="index.html" th:href="@{/index}">Company Management
+						Application</a>
+				</h1>
+			</div>
+		</div>
+	</div>
+	<div th:if="${RadiobuttonNotSelected}">
+		<h3 th:text="${RadiobuttonNotSelected}"></h3>
+		<br>
+	</div>
+	<div th:if="${companyNotFound}">
+		<h3 th:text="${companyNotFound}"></h3>
+		<br>
+	</div>
+
+	<form action="#" th:action="@{/company_management/listSpecificCompany}"
+		th:object="${specificCompany}" method="POST">
+
+		<table border="1" class="myTable">
+			<tr class="myTableRow">
+				<th class="myTable20">Select Company</th>
+				<th class="myTable20">Company ID</th>
+				<th class="myTable35">Phone</th>
+				<th class="myTable20">Company Name</th>
+				<th class="myTable30">Email</th>
+			</tr>
+
+			<tr class="myTableRow" th:each="company : ${companies}">
+				<td class="myTableRadio"><input type="radio" th:field="*{idcompany}" th:value="${company.idcompany}" name="radioCompany"></td>
+				<td class="myTable20" th:text="${company.idcompany}"></td>
+				<td class="myTable35" th:text="${company.phone}"></td>
+				<td class="myTable20" th:text="${company.company_name}"></td>
+				<td class="myTable30" th:text="${company.email}"></td>
+				<td><a href="listSpecificCompany.html" th:href="@{/company_management/listSpecificCompany(idcompany=${company.idcompany})}">View</a></td>
+			</tr>
+		</table>
+		<input th:name="ListSelectedCompanyButton" th:value="View" type="submit">
+		<!-- <button type="submit" th:name="ListSelectedCompanyButton" th:value="in">check-in</button> -->
+	</form>
+</body>
+</html>

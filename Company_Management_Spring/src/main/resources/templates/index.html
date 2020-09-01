@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Company Management</title>
+</head>
+<body>
+	<div class="main">
+		<div class="header">
+			<div class="header_resize">
+				<div class="logo">
+					<h1>
+						<a href="index.html" th:href="@{/index}">Company Management
+							Application</a>
+					</h1>
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="menu_nav">
+				<ul>
+					<li><a th:href="@{/company_management/listCompany}"><span>List Companies</span></a></li>
+					<li><a href="/company_management/formCompany.html"><span>Insert Company</span></a></li>
+					<!-- <li><a href="<c:url value='/searchCompany.jsp' />"><span>Search Companies</span></a></li> -->
+					<!-- <li><a href="<c:url value='/EmployeeController?action=searchEmployee' />"><span>Search Employee</span></a></li> -->
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
