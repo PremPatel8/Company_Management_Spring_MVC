@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+<div class="header">
+		<div class="header_resize">
+			<div class="logo">
+				<h1>
+					<a href="index.html" th:href="@{/index}">Company Management Application</a>
+				</h1>
+			</div>
+		</div>
+	</div>
+	
+	<table border="1" class="myTable">
+			<tr class="myTableRow">
+				<th class="myTable20">Company ID</th>
+				<th class="myTable35">Phone</th>
+				<th class="myTable20">Company Name</th>
+				<th class="myTable30">Email</th>
+			</tr>
+
+			<tr class="myTableRow" th:each="company : ${companies}">
+				<td class="myTable20" th:text="${company.idcompany}"></td>
+				<td class="myTable35" th:text="${company.phone}"></td>
+				<td class="myTable20" th:text="${company.company_name}"></td>
+				<td class="myTable30" th:text="${company.email}"></td>
+			</tr>
+	</table>
+
+</body>
+</html>

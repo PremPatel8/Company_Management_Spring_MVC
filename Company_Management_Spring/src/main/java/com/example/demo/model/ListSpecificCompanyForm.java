@@ -1,4 +1,4 @@
-package ListSpecificCompany;
+package com.example.demo.model;
 
 import javax.validation.constraints.NotNull;
 

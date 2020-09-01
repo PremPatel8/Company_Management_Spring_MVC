@@ -16,19 +16,19 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(uniqueConstraints={@UniqueConstraint(columnNames={"idcompany"})})
-public class company {
+public class Company {
 	@Id
 	@NotNull(message = "Company ID may not be blank")
 	@Column(unique = true, nullable = false)
 	private Integer idcompany;
 	
-	@NotNull(message = "company name may not be null")
 	@NotBlank(message = "company name may not be blank")
 	@Size(min=2, max=30)
 	@Column(unique = true, nullable = false)
-    private String company_name;
+    private String companyName;
 	
 	@NotBlank(message = "Company phone number may not be blank")
+	@Size(min=10, max=10)
     private String phone;
 	
 	@NotBlank(message = "Company Email may not be blank")
@@ -48,11 +48,11 @@ public class company {
 	}
 
 	public String getCompany_name() {
-		return company_name;
+		return companyName;
 	}
 
 	public void setCompany_name(String company_name) {
-		this.company_name = company_name;
+		this.companyName = company_name;
 	}
 
 	public String getPhone() {
@@ -75,6 +75,6 @@ public class company {
 
 	@Override
 	public String toString() {
-		return "Company [idcompany = " + idcompany + ", company_name = " + company_name + ", phone = " + phone + ", email = " + email+ ", createdAt= " + createdAt +"]";
+		return "Company [idcompany = " + idcompany + ", company_name = " + companyName + ", phone = " + phone + ", email = " + email+ ", createdAt= " + createdAt +"]";
 	}
 }

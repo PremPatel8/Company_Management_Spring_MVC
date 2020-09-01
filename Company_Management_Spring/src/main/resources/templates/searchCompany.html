@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Search Company</title>
+</head>
+<body>
+<div class="header">
+		<div class="header_resize">
+			<div class="logo">
+				<h1>
+					<a href="index.html" th:href="@{/index}">Company Management
+						Application</a>
+				</h1>
+			</div>
+		</div>
+	</div>
+<table>
+  <tr>
+   <td>
+    <form action="#" th:action="@{/company_management/searchCompany}" th:object="${company}" method="POST">
+		    <table style="width: 1200px; ">
+			    <tr>
+			    <td> Company name: </td>
+			    <td> <input type="text" th:field="*{company_name}"> </td>
+			    <td><p th:if="${#fields.hasErrors('company_name')}" th:errors="*{company_name}">Company Name Error</p></td>
+			    </tr>
+			
+			    <tr>
+			    <td> Company ID: </td>
+			    <td> <input type="text" th:field="*{idcompany}"> </td>
+			    <td><p th:if="${#fields.hasErrors('idcompany')}" th:errors="*{idcompany}">Company Name Error</p></td>
+			    </tr>
+			
+		    </table>
+		    <button type="submit">Search Company</button>
+    </form>
+</td>
+</tr>
+</table>
+</body>
+</html>
