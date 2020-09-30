@@ -71,7 +71,10 @@ public class EmployeeController {
 	public String listEmployee(@ModelAttribute ListCompanyEmployeesForm companyEmployees,
 			@RequestParam(value = "companyid") Integer companyid,
 			Model model) {
+		System.out.println("inside listEmployee Post endpoint");
 		System.out.println("companyid = "+companyid);
+		System.out.println(employeeRepository.findAllByCompanyid(companyid));
+		
 		model.addAttribute("employees", employeeRepository.findAllByCompanyid(companyid));
 		return "listEmployees";
 	}

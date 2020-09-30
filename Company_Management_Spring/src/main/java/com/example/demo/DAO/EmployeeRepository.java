@@ -1,5 +1,7 @@
 package com.example.demo.DAO;
 
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 
 import com.example.demo.model.Company;
@@ -10,7 +12,8 @@ public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
 //	Employee findByemployeeName(String company_name);
 //	Employee getEmployee(Integer idcompany);
 	
-	Employee findAllByCompanyid(Integer companyid);
+	List<Employee> findAllByCompanyid(Integer companyid);
+//	Company findByidcompany(Integer idcompany);
 	
 //	Employee findByidcompany(Integer idcompany);
 }
