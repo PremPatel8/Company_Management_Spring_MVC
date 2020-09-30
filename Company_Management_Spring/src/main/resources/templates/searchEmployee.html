@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Search Employee</title>
+</head>
+<body>
+<div class="header">
+		<div class="header_resize">
+			<div class="logo">
+				<h1>
+					<a href="index.html" th:href="@{/index}">Company Management
+						Application</a>
+				</h1>
+			</div>
+		</div>
+	</div>
+<table>
+  <tr>
+   <td>
+   	<div th:if="${successMessage}">
+    	<h3 th:text="${successMessage}"></h3><br>
+	</div>
+    <form action="#" th:action="@{/company_management/listEmployee}" th:object="${companyEmployees}" method="POST">
+		    Select a Company Name: &nbsp;
+		    
+		    <select th:field="*{companyid}">
+			    <option th:each="company : ${companies}" 
+			     th:value="${company.idcompany}" 
+			     th:text="${company.company_name}">
+			    </option>
+			</select>
+		    
+		    <button type="submit">Submit</button>
+    </form>
+</td>
+</tr>
+</table>
+</body>
+</html>

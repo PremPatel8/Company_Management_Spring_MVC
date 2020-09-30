@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert Employee</title>
+</head>
+<body>
+<div class="header">
+		<div class="header_resize">
+			<div class="logo">
+				<h1>
+					<a href="index.html" th:href="@{/index}">Company Management
+						Application</a>
+				</h1>
+			</div>
+		</div>
+	</div>
+<table>
+  <tr>
+   <td>
+   	<div th:if="${successMessage}">
+    	<h3 th:text="${successMessage}"></h3><br>
+	</div>
+    <form action="#" th:action="@{/company_management/saveEmployee}" th:object="${employee}" method="POST">
+		    <table style="width: 1200px; ">
+			    <tr>
+			    <td> Employee ID (*): </td>
+			    <td> <input type="text" th:field="*{idemployee}"> </td>
+			    <td><p th:if="${#fields.hasErrors('idemployee')}" th:errors="*{idemployee}">Employee ID Error</p></td>
+			    </tr>
+			
+			    <tr>
+			    <td> First Name (*): </td>
+			    <td> <input type="text" th:field="*{name}"> </td>
+			    <td><p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">First Name Error</p></td>
+			    </tr>
+			
+			    <tr>
+			    <td> Last Name: </td>
+			    <td> <input type="text" th:field="*{surname}"> </td>
+			    <td><p th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Last Name Error</p></td>
+			    </tr>
+			
+			    <tr>
+			    <td> Company Badge (*): </td>
+			    <td> <input type="text" th:field="*{badge}"> </td>
+			    <td><p th:if="${#fields.hasErrors('badge')}" th:errors="*{badge}">Badge Error</p></td>
+			    </tr>
+			
+			    <tr>
+			    <td colspan="2">(*) Mandatory field</td>
+			    </tr>
+		    </table>
+		    <input th:field="*{companyid}" type="hidden"/>
+		    <button type="submit">Insert Employee</button>
+		    <!-- <button onclick="index.html">Done</button> -->
+    </form>
+</td>
+</tr>
+</table>
+</body>
+</html>

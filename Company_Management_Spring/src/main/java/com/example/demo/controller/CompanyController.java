@@ -15,6 +15,7 @@ import com.example.demo.DAO.CompanyRepository;
 import com.example.demo.model.ListSpecificCompanyForm;
 import com.example.demo.model.SearchCompanyForm;
 import com.example.demo.model.Company;
+import com.example.demo.model.Employee;
 
 @Controller // This means that this class is a Controller
 @RequestMapping(path = "/company_management") // This means URL's start with /company_management (after Application path)
@@ -31,7 +32,7 @@ public class CompanyController {
 
 	@PostMapping(path = "/saveCompany") // Map ONLY POST Requests
 	public String addNewCompany(@Valid @ModelAttribute("company") Company companyForm, BindingResult bindingResult,
-			Model model) {
+			Model model, @ModelAttribute("employee") Employee employeeForm) {
 
 		if (bindingResult.hasErrors()) {
 			System.out.println("inside saveCompany form has errors");
@@ -40,9 +41,11 @@ public class CompanyController {
 			System.out.println("inside saveCompany form does NOT have errors");
 			companyRepository.save(companyForm);
 
-			model.addAttribute("successMessage", "New company successfully added");
+//			model.addAttribute("companyid", companyForm.getIdcompany());
+			System.out.println(companyForm.getIdcompany());
+			employeeForm.setCompanyid(companyForm.getIdcompany());
 
-			return "formCompany";
+			return "formEmployee";
 		}
 	}
 

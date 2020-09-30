@@ -75,6 +75,6 @@ public class Company {
 
 	@Override
 	public String toString() {
-		return "Company [idcompany = " + idcompany + ", company_name = " + companyName + ", phone = " + phone + ", email = " + email+ ", createdAt= " + createdAt +"]";
+		return "Company [idcompany = " + idcompany + ", companyName = " + companyName + ", phone = " + phone + ", email = " + email+ ", createdAt= " + createdAt +"]";
 	}
 }
